@@ -13,5 +13,8 @@ public class VariableExample {
         //uncommenting this line will give error as save variable within same body cannot be declared multiple times
         //int b = 10;
 
+        b = 100 +9;
+
+        System.out.println(b);
     }
 }
