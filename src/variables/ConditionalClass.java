@@ -4,6 +4,18 @@ public class ConditionalClass {
 
     public static void main(String args[]){
 
+        boolean bool = true;
+
+        if(bool){
+            System.out.println("here because statement is true");
+        }
+
+        if(!bool){
+            System.out.println("here because statement is false");
+
+        }
+
+
         int firstVal,secondVal;
 
         firstVal=100;
