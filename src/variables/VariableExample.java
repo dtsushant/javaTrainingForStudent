@@ -106,6 +106,15 @@ public class VariableExample {
         b2= (d!=2);
         System.out.println("the statement d != 2 is "+b2);
 
+        b2 = b> a && a ==99;
+
+        System.out.println("the statement  is "+b2);
+
+        b2 = b >= a || a == 99 || b == 100 && b == 99;
+
+        System.out.println("the statement  is "+b2);
+
+
 
         char c1, c2;
 
