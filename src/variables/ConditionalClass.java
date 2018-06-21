@@ -4,7 +4,7 @@ public class ConditionalClass {
 
     public static void main(String args[]){
 
-        boolean bool = true;
+        boolean bool = false;
 
         if(bool){
             System.out.println("here because statement is true");
@@ -16,19 +16,19 @@ public class ConditionalClass {
         }
 
 
-        int firstVal,secondVal;
+        int firstVal,secondVal,thirdval;
 
-        firstVal=100;
+        firstVal=1000;
         secondVal=200;
 
         if(firstVal> secondVal){
-            System.out.println("firstVal = " + firstVal);
+            System.out.println("firstVal = " + firstVal+"is greater than "+ secondVal);
         }else{
-            System.out.println("secondVal = " + secondVal);
+            System.out.println("secondVal = " + secondVal+"is greater than "+ firstVal);
         }
 
 
-        int testscore = 76;
+        int testscore = 98;
         char grade;
 
         if (testscore >= 90) {
@@ -45,7 +45,7 @@ public class ConditionalClass {
         System.out.println("Grade = " + grade);
 
 
-        int num=-1;
+        int num=878788787;
         if(num <100 && num>=1) {
             System.out.println("Its a two digit number");
         }
