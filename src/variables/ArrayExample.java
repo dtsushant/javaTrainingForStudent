@@ -2,7 +2,25 @@ package variables;
 
 public class ArrayExample {
 
+    int a ;
+    int b = 100;
+    static int c = 900;
+
+
+    int d = test();
+
+
+
+    public int test(){
+        int a =88;
+        int d = b + this.a;
+
+        System.out.println(c);
+        return d;
+    }
+
     public static void main(String args[]){
+
         int[] i = new int[47];
 
         i[0] = 3;
@@ -18,6 +36,14 @@ public class ArrayExample {
 
         ArrayExample ar = new ArrayExample();
         ar.nonStaticPrintArray(i);
+
+        int a= 88;
+        int c = 99;
+
+        System.out.println(ArrayExample.c);
+        System.out.println(ar.a);
+        System.out.println(c);
+
 
 
         String s[] = {" a","b d    dfdc","de","f","ghi"};
