@@ -1,19 +1,31 @@
 package oops;
 
+import oops.inheritence.Cycle;
+import oops.inheritence.GearWalaCycle;
+
 public class CycleMain {
 
     public static void main(String args[]){
         Cycle c = new Cycle();
-        c.pedalPerSec = 5;
-        System.out.println(c.speed());
+        c.setPedalPerSec(9);
+        c.prettyPrint();
 
-        GearWalaCycle gc = new GearWalaCycle();
-        gc.pedalPerSec = 10;
-        gc.gear = 4;
-        System.out.println(gc.speed());
+        Cycle c1 = new Cycle(5);
+        c1.prettyPrint();
 
-        gc.gear = 3;
-        System.out.println(gc.speed());
+
+        GearWalaCycle gc = new GearWalaCycle(9.9);
+        gc.prettyPrint();
+        gc.gearInformation();
+
+        Cycle c3 = new GearWalaCycle();
+        //cannot access property not present in parent class
+        //c3.gearInformation();
+
+
+
+
+
 
     }
 }
