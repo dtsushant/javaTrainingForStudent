@@ -22,6 +22,9 @@ public class CycleMain {
         //cannot access property not present in parent class
         //c3.gearInformation();
 
+        GearWalaCycle gc2 = new GearWalaCycle(8,1);
+        gc2.prettyPrint();
+
 
 
 
