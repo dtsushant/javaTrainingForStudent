@@ -2,7 +2,7 @@ package oops.abstraction;
 
 public interface Operation {
 
-    public void operate();
+    public double operate();
 
     public String operated();
 
