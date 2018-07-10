@@ -26,8 +26,19 @@ public class TryCatchExample {
 
         System.out.println("this is the end of the program");
 
+        try{
+            testThrowImplementagtion(true);
 
+        }catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
 
         System.out.println("you provided "+l);
+    }
+
+    public static void testThrowImplementagtion(boolean var) throws Exception{
+        System.out.println("hello i am about to throw and exception");
+        if(var)
+            throw new Exception("THrowing exception for no reason");
     }
 }

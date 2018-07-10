@@ -9,12 +9,13 @@ import java.util.Scanner;
 public class BookDataSupplier {
 
     static InputProvider inputProvider = new InputProvider();
+    static ArrayList<Book> booklist = new ArrayList<>();
+
 
     public static void main(String args[]){
         //Scanner scanner = new Scanner(System.in);
 
         boolean exit=false;
-        ArrayList<Book> booklist = new ArrayList<>();
         int option;
 
 
@@ -25,7 +26,7 @@ public class BookDataSupplier {
             System.out.println("3 for Dispaly book by genre");
             System.out.println("4 exit");
 
-            option = inputProvider.nextInt();
+            option = inputProvider.nextIntInRange(1,4);
 
             switch (option){
                 case 1:
@@ -37,12 +38,13 @@ public class BookDataSupplier {
                     booklist.add(b);
                     break;
                 case 3:
+                    System.out.println("Enter the genre of the book:-");
+                    String genre = inputProvider.next();
+                    displayAllBook(getBookByGenre(genre));
                     break;
                 case 4:
                     exit=true;
                     break;
-                    default:
-                        System.out.println("Invalid option");
             }
 
         }while (!exit);
@@ -87,5 +89,14 @@ public class BookDataSupplier {
             System.out.println("the genre of the book is "+b.getGenre());
         }
 
+    }
+
+    public static ArrayList<Book> getBookByGenre(String genre){
+        ArrayList<Book> book = new ArrayList<>();
+        for(Book b: booklist){
+            if(genre.equalsIgnoreCase(b.getGenre()))
+                book.add(b);
+        }
+        return  book;
     }
 }
