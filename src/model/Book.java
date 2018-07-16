@@ -1,6 +1,7 @@
 package model;
 
 public class Book {
+    private Integer id;
     private String name;
     private String author;
     private int     isbnNo;
@@ -21,6 +22,23 @@ public class Book {
         this.genre = genre;
     }
 
+    public Book(Integer id, String name, String author, int isbnNo, double price, String publication, String genre) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.isbnNo = isbnNo;
+        this.price = price;
+        this.publication = publication;
+        this.genre = genre;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
