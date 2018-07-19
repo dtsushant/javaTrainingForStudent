@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "TestServlet",urlPatterns = {"/th","/thi"})
-public class TestServlet extends HttpServlet {
+@WebServlet(name = "AnnotationBasedServlet" ,urlPatterns = "/this")
+public class AnnotationBasedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
@@ -24,7 +24,7 @@ public class TestServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>");
-        out.println("Hello this is a page rendered from servlet");
+        out.println("Hello this is a Annotation Servlet page rendered from servlet");
         out.println("<br/>from url:-"+request.getRequestURI());
         out.println("</h1>");
         out.println("</body>");
