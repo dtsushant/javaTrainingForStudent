@@ -1,5 +1,12 @@
 package com.javawebtraining.model;
 
+import com.javawebtraining.dbconnection.Connector;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class Reads {
     private Integer id;
     private String name;
@@ -89,6 +96,41 @@ public class Reads {
     }
 
 
+
+    public static  ArrayList<Reads> findAll(){
+        ArrayList<Reads> booklist = new ArrayList<>();
+        Connection con= null;
+
+        try{
+            con = Connector.getConnection();
+            String sql = "select * from book";
+            Statement statement = con.createStatement();
+            ResultSet rs = statement.executeQuery(sql);
+
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String author = rs.getString("author");
+                String genre = rs.getString("genre");
+                String publication = rs.getString("publication");
+                Double price = rs.getDouble("price");
+                int isbnNo = rs.getInt("isbn_no");
+
+                Reads b = new Reads(id,name,author,isbnNo,price,publication,genre);
+                booklist.add(b);
+
+
+            }
+            con.close();
+
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return booklist;
+
+    }
 
 
 }
