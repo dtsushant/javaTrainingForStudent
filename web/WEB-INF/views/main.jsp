@@ -57,6 +57,11 @@
             text-decoration: none;
             padding: 1px;
         }
+
+        .element{
+            display: block;
+            line-break: strict;
+        }
     </style>
 </head>
 <body>

@@ -3,6 +3,7 @@ package com.javawebtraining.model;
 import com.javawebtraining.dbconnection.Connector;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -130,6 +131,28 @@ public class Reads {
 
         return booklist;
 
+    }
+
+    public boolean save(){
+        boolean saveStatus = false;
+        Connection con = null;
+        try{
+            con = Connector.getConnection();
+            PreparedStatement stmt = con.prepareStatement("insert into book(name,author,price,isbn_no,publication,genre) values(?,?,?,?,?,?)");
+
+            stmt.setString(1,this.getName());
+            stmt.setString(2,this.getAuthor());
+            stmt.setDouble(3,this.getPrice());
+            stmt.setInt(4,this.getIsbnNo());
+            stmt.setString(5,this.getPublication());
+            stmt.setString(6,this.getGenre());
+
+            stmt.execute();
+            saveStatus = true;
+        }catch (Exception ex){
+            System.out.println("ex = " + ex);
+        }
+        return saveStatus;
     }
 
 
