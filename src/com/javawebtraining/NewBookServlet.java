@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "NewBookServlet",urlPatterns ="/new")
+@WebServlet(name = "NewBookServlet",urlPatterns ={"/new","/edit"})
 public class NewBookServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
@@ -20,8 +20,24 @@ public class NewBookServlet extends HttpServlet {
         Double price = Double.parseDouble(request.getParameter("price"));
         Integer isbnNo = Integer.parseInt(request.getParameter("isbn"));
 
-        Reads read = new Reads(name,author,isbnNo,price,publication,genre);
-        if(read.save())
+
+        String requestUri = request.getRequestURI();
+        Reads read = null;
+        boolean status = false;
+        if(requestUri.equals("/new")) {
+            read = new Reads(name, author, isbnNo, price, publication, genre);
+            status = read.save();
+        }else if(requestUri.equals("/edit")){
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            read = new Reads(id,name, author, isbnNo, price, publication, genre);
+            status = read.modify();
+
+        }
+
+
+
+
+        if(status)
             response.sendRedirect("/readlist");
         else
             response.sendRedirect("/new");
@@ -29,10 +45,23 @@ public class NewBookServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("i am at get");
+        String requestUri = request.getRequestURI();
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
-        request.setAttribute("title","Add New | Book Library");
-        request.setAttribute("pageName","newBook");
+
+        if(requestUri.equals("/new")) {
+            request.setAttribute("title", "Add New | Book Library");
+            request.setAttribute("pageName", "newBook");
+        }else if(requestUri.equals("/edit")){
+
+            Integer id = Integer.parseInt(request.getParameter("id"));
+
+            Reads r = Reads.get(id);
+
+            request.setAttribute("Title","Edit "+r.getName()+"| Book Library");
+            request.setAttribute("book",r);
+            request.setAttribute("pageName", "editBook");
+        }
 
         rd.forward(request,response);
     }

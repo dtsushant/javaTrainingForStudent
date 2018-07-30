@@ -133,6 +133,39 @@ public class Reads {
 
     }
 
+    public static Reads get(Integer index){
+        Reads read = null;
+        Connection con= null;
+
+        try{
+            con = Connector.getConnection();
+            String sql = "select * from book where id = ?";
+            PreparedStatement statement = con.prepareStatement(sql);
+            statement.setInt(1,index);
+            ResultSet rs = statement.executeQuery();
+
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String name = rs.getString("name");
+                String author = rs.getString("author");
+                String genre = rs.getString("genre");
+                String publication = rs.getString("publication");
+                Double price = rs.getDouble("price");
+                int isbnNo = rs.getInt("isbn_no");
+
+                read = new Reads(id,name,author,isbnNo,price,publication,genre);
+
+
+            }
+            con.close();
+
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return read;
+    }
+
     public boolean save(){
         boolean saveStatus = false;
         Connection con = null;
@@ -148,6 +181,29 @@ public class Reads {
             stmt.setString(6,this.getGenre());
 
             stmt.execute();
+            saveStatus = true;
+        }catch (Exception ex){
+            System.out.println("ex = " + ex);
+        }
+        return saveStatus;
+    }
+
+    public boolean modify(){
+        boolean saveStatus = false;
+        Connection con = null;
+        try{
+            con = Connector.getConnection();
+            PreparedStatement stmt = con.prepareStatement("update book set name= ?,author=?,price=?,isbn_no=?,publication=?,genre=? where id = ?");
+
+            stmt.setString(1,this.getName());
+            stmt.setString(2,this.getAuthor());
+            stmt.setDouble(3,this.getPrice());
+            stmt.setInt(4,this.getIsbnNo());
+            stmt.setString(5,this.getPublication());
+            stmt.setString(6,this.getGenre());
+            stmt.setInt(7,this.getId());
+
+            stmt.executeUpdate();
             saveStatus = true;
         }catch (Exception ex){
             System.out.println("ex = " + ex);

@@ -24,10 +24,20 @@
             <td>${r.isbnNo}</td>
             <td>${r.publication}</td>
             <td>${r.price}</td>
-            <td><a href="#">Edit</a>/ <a href="#">Delete</a></td>
+            <td><a href="/edit?id=${r.id}">Edit</a>/ <a onclick='deleteBook("${r.id}")'>Delete</a></td>
         </tr>
 
     </c:forEach>
 
     </tbody>
 </table>
+
+<script>
+
+    function deleteBook(id){
+        var confirmDelete = confirm(" are you sure?");
+        if(confirmDelete){
+            window.location="/deleteBook?id="+id;
+        }
+    }
+</script>
