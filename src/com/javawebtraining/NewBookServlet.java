@@ -45,6 +45,7 @@ public class NewBookServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("now adding new book");
         String requestUri = request.getRequestURI();
 
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");

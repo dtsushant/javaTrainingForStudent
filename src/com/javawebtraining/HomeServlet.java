@@ -17,6 +17,7 @@ public class HomeServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("Now in home");
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
         request.setAttribute("title","Home | Book Library");
         request.setAttribute("pageName","home");

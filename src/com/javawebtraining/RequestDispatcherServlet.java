@@ -18,6 +18,7 @@ public class RequestDispatcherServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/dispatch.jsp");
 
         ArrayList<HashMap<String,String>> ahm = new ArrayList<>();
