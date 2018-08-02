@@ -1,3 +1,4 @@
+<%@ taglib prefix="de" uri="http://tagblibtest.com" %>
 <%@ page import="java.util.HashMap" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.Iterator" %><%--
@@ -95,5 +96,17 @@
     %>
         </tbody>
     </table>
+
+<de:empty/>
+
+    <br/>
+
+<de:withbody>
+    something withiun the body
+</de:withbody>
+
+<de:withattribute  name="human" />
+
+
 </body>
 </html>

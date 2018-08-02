@@ -18,6 +18,7 @@ public class SessionFilter implements Filter {
         loginNotRequired.add("/login");
         loginNotRequired.add("/logout");
         loginNotRequired.add("/th");
+        loginNotRequired.add("/custom.jsp");
 
     }
 
