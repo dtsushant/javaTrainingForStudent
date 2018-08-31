@@ -24,5 +24,14 @@ public class CycleProperty {
         gc.pedalPerSec = 17;
         gc.printSpeed();
 
+        GearwalaCycle gc1 = new GearwalaCycle(22);
+        gc1.printSpeed();
+
+        Cycle gc3 = new GearwalaCycle(15);
+        gc3.printSpeed();
+
+        Cycle c3 = new Cycle(15);
+        c3.printSpeed();
+
     }
 }

@@ -16,6 +16,12 @@ public class Cycle {
     }
 
     public void printSpeed(){
-        System.out.printf("\nThe Cycle is currently at the speed of %f KM/hr",getSpeed());
+        double speed = getSpeed();
+        if (speed==0) {
+            System.out.print("\nThe Cycle is in rest");
+        }
+        else{
+            System.out.printf("\nThe Cycle is currently at the speed of %f KM/hr",speed);
+        }
     }
 }
