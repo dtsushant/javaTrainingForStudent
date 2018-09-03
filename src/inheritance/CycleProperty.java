@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class CycleProperty {
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Please enter the no. of pedals :-");
+       /* System.out.println("Please enter the no. of pedals :-");
         double pedals = scan.nextDouble();
 
         Cycle c1 = new Cycle();
@@ -25,13 +25,27 @@ public class CycleProperty {
         gc.printSpeed();
 
         GearwalaCycle gc1 = new GearwalaCycle(22);
-        gc1.printSpeed();
+        gc1.printSpeed();*/
 
-        Cycle gc3 = new GearwalaCycle(15);
+        System.out.println("\ninheritance overridding example");
+        GearwalaCycle gc3 = new GearwalaCycle(15);
+        gc3.gear = 5;
         gc3.printSpeed();
 
         Cycle c3 = new Cycle(15);
         c3.printSpeed();
+
+        System.out.println("\nEnter Pedal per sec for gearwala cycle :-");
+        double pedal = scan.nextDouble();
+
+
+        System.out.println("Enter gear for :-");
+        int gear = scan.nextInt();
+
+
+        GearwalaCycle gc4 = new GearwalaCycle(pedal,gear);
+        gc4.printSpeed();
+
 
     }
 }
