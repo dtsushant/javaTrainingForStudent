@@ -29,6 +29,7 @@ public class CycleProperty {
 
         System.out.println("\ninheritance overridding example");
         GearwalaCycle gc3 = new GearwalaCycle(15);
+        gc3.setCycleName("Mountain Bike");
         gc3.gear = 5;
         gc3.printSpeed();
 
@@ -43,7 +44,7 @@ public class CycleProperty {
         int gear = scan.nextInt();
 
 
-        GearwalaCycle gc4 = new GearwalaCycle(pedal,gear);
+        GearwalaCycle gc4 = new GearwalaCycle(pedal,gear,"Giant");
         gc4.printSpeed();
 
 
