@@ -1,5 +1,7 @@
 package exceptionhandling;
 
+import dataentry.DataEntryTool;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -65,6 +67,9 @@ public class ExceptionExamples {
         }
 
 
+        DataEntryTool det = new DataEntryTool();
+        int i = det.nextInt();
+        System.out.println(i);
         System.out.println("end of the example");
 
     }
