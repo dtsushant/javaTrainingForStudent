@@ -72,5 +72,30 @@ public class ExceptionExamples {
         System.out.println(i);
         System.out.println("end of the example");
 
+        System.out.println("enter a gender");
+        try {
+            String s = det.getGenderWithThrow();
+            System.out.println(s);
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        System.out.println("enter another gender");
+        String s = det.getGender();
+        System.out.println(s);
+
+        try {
+            int number = det.getIntegerInRangeWithThrow(0, 100);
+            System.out.println(number);
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }finally {
+            System.out.println("end of code");
+        }
+
+
     }
+
+
 }
