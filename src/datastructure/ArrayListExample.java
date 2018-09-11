@@ -44,5 +44,44 @@ public class ArrayListExample {
         for(String s: stringArrayList){
             System.out.println(s);
         }
+
+        System.out.println("Starting to add student infor");
+
+        Student s1 = new Student();
+        s1.setFullName("Ram Aryal");
+        s1.setAge(7);
+        s1.setGender("Male");
+        s1.setGrade(2);
+        s1.setId(1);
+
+        studentArrayList.add(s1);
+
+        Student s2 = new Student(2,3,"Hari Lama",8,"male");
+
+        studentArrayList.add(s2);
+
+        studentArrayList.add(new Student(3,3,"Sushma karki",8,"female"));
+
+        System.out.println(studentArrayList);
+
+        for(Student st: studentArrayList){
+            System.out.println("\n***********************************************");
+            System.out.printf("id = %d |",st.getId());
+            System.out.printf(" grade = %d |",st.getGrade());
+            System.out.printf(" fullname = %s |",st.getFullName());
+            System.out.printf(" age = %d |", st.getAge());
+            System.out.printf(" gender = %s |",st.getGender());
+        }
+
+
+        System.out.println("\n classic for method");
+        for(int i =0; i < studentArrayList.size(); i++){
+            System.out.println("\n***********************************************");
+            System.out.printf("id = %d |",studentArrayList.get(i).getId());
+            System.out.printf(" grade = %d |",studentArrayList.get(i).getGrade());
+            System.out.printf(" fullname = %s |",studentArrayList.get(i).getFullName());
+            System.out.printf(" age = %d |", studentArrayList.get(i).getAge());
+            System.out.printf(" gender = %s |",studentArrayList.get(i).getGender());
+        }
     }
 }
