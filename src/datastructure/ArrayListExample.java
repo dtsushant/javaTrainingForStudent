@@ -12,7 +12,7 @@ public class ArrayListExample {
         ArrayList<Student> studentArrayList = new ArrayList<>();
 
         integerArrayList.add(100);
-        integerArrayList.add(200);
+        integerArrayList.add(100);
         integerArrayList.add(300);
         integerArrayList.add(500);
         integerArrayList.add(400);
