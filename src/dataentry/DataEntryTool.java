@@ -8,7 +8,6 @@ public class DataEntryTool {
     public int nextInt(){
         int intVal = 0;
         boolean bool = true;
-        System.out.println("Please provide an integer value:- ");
 
         do{
             try{
@@ -24,11 +23,14 @@ public class DataEntryTool {
         return intVal;
     }
 
+    public String next(){
+        return new Scanner(System.in).next();
+    }
+
 
     public double nextDouble(){
         double val = 0;
         boolean bool = true;
-        System.out.println("Please provide an double value:- ");
 
         do{
             try{
@@ -89,6 +91,17 @@ public class DataEntryTool {
     }
 
     public Integer getIntegerInRange(int minRange,int maxRange){
-        return 0;
+        int i = nextInt();
+        while(true) {
+            try {
+                if (i < minRange || i > maxRange) {
+                    throw new NumberNotInRangeException(minRange, maxRange, i);
+                }
+                break;
+            } catch (NumberNotInRangeException ex) {
+                System.out.println(ex.toString());
+            }
+        }
+        return i;
     }
 }
