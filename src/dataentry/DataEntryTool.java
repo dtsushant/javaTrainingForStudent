@@ -24,7 +24,7 @@ public class DataEntryTool {
     }
 
     public String next(){
-        return new Scanner(System.in).next();
+        return new Scanner(System.in).nextLine();
     }
 
 
@@ -91,8 +91,10 @@ public class DataEntryTool {
     }
 
     public Integer getIntegerInRange(int minRange,int maxRange){
-        int i = nextInt();
+        int i = 0;
         while(true) {
+             i = nextInt();
+
             try {
                 if (i < minRange || i > maxRange) {
                     throw new NumberNotInRangeException(minRange, maxRange, i);
