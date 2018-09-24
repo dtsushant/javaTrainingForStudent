@@ -9,8 +9,18 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 </head>
 <body>
+ Hi this is my first web application
 
+ <div id="container">
+    <div class="section">
+        this is 1st of the div
+    </div>
+     <div class="section">
+        this is 2nd of the div
+    </div>
+ </div>
 </body>
 </html>

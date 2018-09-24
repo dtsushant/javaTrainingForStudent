@@ -1,0 +1,18 @@
+#container{
+    width:900px;
+    margin: auto;
+    min-height: 700px;
+    border: #000 solid 1px;
+}
+
+
+
+.section{
+    width: 300px;
+    padding: 2px;
+    float:left;
+    min-height: 300px;
+    margin: 2px;
+    border: #ff0000 solid 1px;
+}
+
