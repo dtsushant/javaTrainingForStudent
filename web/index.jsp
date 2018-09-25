@@ -12,6 +12,11 @@
     <link rel="stylesheet" type="text/css" href="/css/main.css"/>
 </head>
 <body>
+<%
+    String a = "hello";
+    String b = "something";
+    out.println(a.equals(b));
+%>
  Hi this is my first web application
 
  <div id="container">
