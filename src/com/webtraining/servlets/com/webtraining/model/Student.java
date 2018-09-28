@@ -1,5 +1,7 @@
 package com.webtraining.servlets.com.webtraining.model;
 
+import java.util.ArrayList;
+
 public class Student {
     private Integer id;
     private Integer grade;
@@ -56,5 +58,15 @@ public class Student {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public static ArrayList<Student> getStudentList(){
+        ArrayList<Student> stdList = new ArrayList<>();
+        stdList.add(new Student(1,2,"John Doe",7,"male"));
+        stdList.add(new Student(2,3,"Jane Doe",8,"Female"));
+        stdList.add(new Student(3,2,"Sita Gita",7,"Female"));
+        stdList.add(new Student(3,3,"Ram Hari",9,"male"));
+        stdList.add(new Student(3,2,"Hari Ram",8,"male"));
+        return stdList;
     }
 }
