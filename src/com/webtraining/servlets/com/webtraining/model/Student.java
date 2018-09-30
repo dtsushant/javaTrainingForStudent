@@ -60,6 +60,13 @@ public class Student {
         this.gender = gender;
     }
 
+    public String getReverseGender(){
+        if(this.gender.equalsIgnoreCase("male"))
+            return "female";
+            else
+                return "male";
+    }
+
     public static ArrayList<Student> getStudentList(){
         ArrayList<Student> stdList = new ArrayList<>();
         stdList.add(new Student(1,2,"John Doe",7,"male"));
