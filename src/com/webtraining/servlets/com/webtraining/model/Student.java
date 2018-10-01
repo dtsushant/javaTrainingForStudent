@@ -1,5 +1,10 @@
 package com.webtraining.servlets.com.webtraining.model;
 
+import com.webtraining.servlets.com.webtraining.db.Connector;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Student {
@@ -75,5 +80,28 @@ public class Student {
         stdList.add(new Student(3,3,"Ram Hari",9,"male"));
         stdList.add(new Student(3,2,"Hari Ram",8,"male"));
         return stdList;
+    }
+
+    public static ArrayList<Student> findAll(){
+        ArrayList<Student> studentList= new ArrayList<Student>();
+        String sql = "Select * from student";
+        try{
+            Connection con = Connector.getConnection();
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            while (rs.next()){
+                int id = rs.getInt("id");
+                String fullName = rs.getString("full_name");
+                int grade = rs.getInt("grade");
+                int age = rs.getInt("age");
+                String gender = rs.getString("gender");
+                studentList.add(new Student(id,grade,fullName,age,gender));
+            }
+
+            con.close();
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        return studentList;
     }
 }
