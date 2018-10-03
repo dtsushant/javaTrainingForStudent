@@ -126,4 +126,71 @@ public class Student {
         }
         return  false;
     }
+
+    public static Student findById(int id){
+        Student student = null;
+        String sql = "Select * from student where id = ?";
+        try{
+            Connection con = Connector.getConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1,id);
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+
+
+                String fullName = rs.getString("full_name");
+                int age = rs.getInt("age");
+                String gender = rs.getString("gender");
+                int grade = rs.getInt("grade");
+
+                student = new Student(id,grade,fullName,age,gender);
+            }
+
+            con.close();
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        return student;
+    }
+
+    public boolean update(){
+        Boolean b = false;
+        String sql = "Update student set full_name = ? , age= ?, gender= ? , grade = ? where id = ? ";
+        try{
+            Connection con = Connector.getConnection();
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1, this.getFullName());
+            stmt.setInt(2,this.getAge());
+            stmt.setString(3,this.getGender());
+            stmt.setInt(4,this.getGrade());
+            stmt.setInt(5,this.getId());
+
+            stmt.executeUpdate();
+            con.close();
+            System.out.println("Student successfully modified");
+            b= true;
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+
+        return  b;
+    }
+
+    public boolean delete(){
+        Boolean b = false;
+        try{
+            String sql = "delete from student where id = ?";
+            Connection c = Connector.getConnection();
+            PreparedStatement stmt = c.prepareStatement(sql);
+            stmt.setInt(1,this.id);
+            stmt.executeUpdate();
+            c.close();
+            System.out.println("Student deleted successfully ");
+            b = true;
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        return b;
+    }
 }

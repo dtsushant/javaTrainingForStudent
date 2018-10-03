@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "StudentServlet",urlPatterns = {"/student","/addStudent"})
+@WebServlet(name = "StudentServlet",urlPatterns = {"/student","/addStudent","/editStudent","/deleteStudent"})
 public class StudentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if(request.getRequestURI().equals("/addStudent")){
-            String fullname = request.getParameter("fullname");
-            Integer grade = Integer.parseInt(request.getParameter("grade"));
-            Integer age = Integer.parseInt(request.getParameter("age"));
-            String gender = request.getParameter("gender");
+        String fullname = request.getParameter("fullname");
+        Integer grade = Integer.parseInt(request.getParameter("grade"));
+        Integer age = Integer.parseInt(request.getParameter("age"));
+        String gender = request.getParameter("gender");
 
+        if(request.getRequestURI().equals("/addStudent")){
             Student std = new Student();
             std.setAge(age);
             std.setFullName(fullname);
@@ -26,9 +26,14 @@ public class StudentServlet extends HttpServlet {
             std.setGrade(grade);
             std.save();
 
-            response.sendRedirect("/student");
-
+        }else if(request.getRequestURI().equals("/editStudent")){
+            int id = Integer.parseInt(request.getParameter("id"));
+            Student std = new Student(id,grade,fullname,age,gender);
+            std.update();
         }
+
+        response.sendRedirect("/student");
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -36,9 +41,23 @@ public class StudentServlet extends HttpServlet {
         if(request.getRequestURI().equals("/student")) {
             request.setAttribute("page", "studentList");
             request.setAttribute("stdList", Student.findAll());
+            rd.forward(request,response);
+
         }else if(request.getRequestURI().equals("/addStudent")){
             request.setAttribute("page", "addStudent");
+            rd.forward(request,response);
+
+        }else if(request.getRequestURI().equals("/editStudent")){
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            request.setAttribute("studentData",Student.findById(id));
+            request.setAttribute("page","editStudent");
+            rd.forward(request,response);
+
+        }else if(request.getRequestURI().equals("/deleteStudent")){
+            Integer id = Integer.parseInt(request.getParameter("id"));
+            Student std =  Student.findById(id);
+            std.delete();
+            response.sendRedirect("/student");
         }
-        rd.forward(request,response);
     }
 }
