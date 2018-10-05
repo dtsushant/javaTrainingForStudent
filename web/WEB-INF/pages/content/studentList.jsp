@@ -8,6 +8,7 @@
         <th>Age</th>
         <th>Gender</th>
         <th>Action</th>
+        <th>Results</th>
     </tr>
     </thead>
 
@@ -22,6 +23,7 @@
             <td>${s.age}</td>
             <td>${s.reverseGender}</td>
             <td><a href="/editStudent?id=${s.id}">Edit Student</a> | <a href="/deleteStudent?id=${s.id}" onclick="return confirm('Are you sure?');">Delete Student</a></td>
+            <td><a href="/result?studentId=${s.id}">View Results</a></td>
         </tr>
     </c:forEach>
     </tbody>
