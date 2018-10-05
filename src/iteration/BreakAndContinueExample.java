@@ -21,6 +21,6 @@ public class BreakAndContinueExample {
             System.out.print(k+" ");
         }
 
-        // print multiply of all number from 50 - 0 divisible by 3;
+        // print multiply of all number from 50 - 0 divisible by 3 using continue;
     }
 }
