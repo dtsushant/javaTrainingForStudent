@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "StudentServlet",urlPatterns = {"/student","/addStudent","/editStudent","/deleteStudent"})
@@ -39,9 +40,14 @@ public class StudentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/main.jsp");
         if(request.getRequestURI().equals("/student")) {
-            request.setAttribute("page", "studentList");
-            request.setAttribute("stdList", Student.findAll());
-            rd.forward(request,response);
+            HttpSession session = request.getSession();
+            if(session.getAttribute("username")!=null) {
+                request.setAttribute("page", "studentList");
+                request.setAttribute("stdList", Student.findAll());
+                rd.forward(request, response);
+            }else{
+                response.sendRedirect("/login");
+            }
 
         }else if(request.getRequestURI().equals("/addStudent")){
             request.setAttribute("page", "addStudent");

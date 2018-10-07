@@ -12,5 +12,8 @@
 </head>
 <body>
     this is example of a page.
+    <br/>
+hello ${sessionScope.get("name")} <br/>
+hello ${sessionScope.get("dynamic")} <br/>
 </body>
 </html>

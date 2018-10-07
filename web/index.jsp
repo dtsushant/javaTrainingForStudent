@@ -18,6 +18,9 @@
     out.println(a.equals(b));
 %>
  Hi this is my first web application
+<br/>
+hello ${sessionScope.get("name")}<br/>
+hello ${sessionScope.get("dynamic")}
 
  <div id="container">
     <div class="section">
