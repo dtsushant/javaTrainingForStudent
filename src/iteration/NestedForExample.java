@@ -14,12 +14,15 @@ public class NestedForExample {
         //printing all prime no. within 1000
 
         for(int i = 2; i<=1000;i++){
-            boolean check = false;
+            boolean check = true;
             for(int j = 2; j <= i/2; j++){
                 if(i%j==0){
-
+                    check = false;
+                    break;
                 }
             }
+            if (check)
+                System.out.print(i + " ");
         }
     }
 }
