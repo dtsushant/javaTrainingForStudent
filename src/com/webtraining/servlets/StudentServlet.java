@@ -40,15 +40,9 @@ public class StudentServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/pages/main.jsp");
         if(request.getRequestURI().equals("/student")) {
-            HttpSession session = request.getSession();
-            if(session.getAttribute("username")!=null) {
-                request.setAttribute("page", "studentList");
-                request.setAttribute("stdList", Student.findAll());
-                rd.forward(request, response);
-            }else{
-                response.sendRedirect("/login");
-            }
-
+            request.setAttribute("page", "studentList");
+            request.setAttribute("stdList", Student.findAll());
+            rd.forward(request, response);
         }else if(request.getRequestURI().equals("/addStudent")){
             request.setAttribute("page", "addStudent");
             rd.forward(request,response);
