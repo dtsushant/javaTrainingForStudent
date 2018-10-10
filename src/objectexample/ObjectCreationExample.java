@@ -1,5 +1,7 @@
 package objectexample;
 
+import java.util.Scanner;
+
 public class ObjectCreationExample {
 
     int a ;
@@ -30,6 +32,18 @@ public class ObjectCreationExample {
 
         System.out.println(ec.j);
         ec.printSomething();
+
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("please enter some stirng");
+        String abc = scan.next();
+
+        System.out.println("please enter an integer");
+        int a = scan.nextInt();
+        System.out.println("Please enter an integer");
+        int b = scan.nextInt();
+
+        System.out.println("the value of sum of a & b is "+ (a+b));
 
 
     }
