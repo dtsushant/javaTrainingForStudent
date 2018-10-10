@@ -1,3 +1,4 @@
+<%@ taglib prefix="my" uri="http://jpt.com" %>
 <%--
   Created by IntelliJ IDEA.
   User: spandey
@@ -29,6 +30,12 @@ hello ${sessionScope.get("dynamic")}
      <div class="section">
         this is 2nd of the div
     </div>
+
+     <my:pimple/>
+
+     <my:eggBody>
+         this will go to taglibwith body and will comeback with design
+     </my:eggBody>
  </div>
 </body>
 </html>

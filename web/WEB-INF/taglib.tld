@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <tlib-version>1.0</tlib-version>
+    <short-name>myshortname</short-name>
+    <uri>http://jpt.com</uri>
+
+    <!-- Invoke 'Generate' action to add tags or functions -->
+
+    <tag>
+        <name>pimple</name>
+        <tag-class>com.webtraining.taglibs.SimpleTaglibExample</tag-class>
+        <body-content>empty</body-content>
+    </tag>
+
+    <tag>
+        <name>eggBody</name>
+        <tag-class>com.webtraining.taglibs.TaglibWithBody</tag-class>
+        <body-content>scriptless</body-content>
+    </tag>
+
+</taglib>
+
+
