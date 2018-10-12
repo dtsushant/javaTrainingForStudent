@@ -1,3 +1,4 @@
+<%@ taglib prefix="custom" uri="http://jpt.com" %>
 <%--
   Created by IntelliJ IDEA.
   User: spandey
@@ -9,8 +10,11 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+
 </head>
 <body>
+        <custom:flash-message title="loginerror" type="error"/> />
         <form method="post" action="/login">
             Username: <input type="text" name="user" required /><br/>
             Password: <input type="password" name="pass" required/><br/>

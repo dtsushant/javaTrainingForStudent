@@ -12,6 +12,6 @@ public class SimpleTaglibExample extends SimpleTagSupport {
         super.doTag();
         JspWriter out  = getJspContext().getOut();
 
-        out.println("<b>hello hello this here is an output from taglib<b/>");
+        out.println("<b>hello hello this here is a simple output from taglib<b/>");
     }
 }

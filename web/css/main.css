@@ -29,5 +29,17 @@ table th td{
     display: inline;
 }
 
+.info{
+    color:green;
+}
+
+.warn{
+    color:yellow;
+}
+
+.error{
+    color:red;
+}
+
 
 

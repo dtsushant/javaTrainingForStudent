@@ -16,7 +16,7 @@ public class TaglibWithBody extends SimpleTagSupport {
         StringWriter sw = new StringWriter();
         getJspBody().invoke(sw);
 
-        out.println("<div style='background:red; color:white; width:300px; font-size:15px;'>");
+        out.println("<div style='background:green; color:white; width:300px; font-size:15px;'>");
         out.println(sw.toString());
         out.println("</div>");
 
