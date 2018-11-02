@@ -1,7 +1,7 @@
 package inheritance;
 
 public class Cycle {
-    Double pedalPerSec;
+    public Double pedalPerSec;
 
     public Cycle(){
         this.pedalPerSec =0.0;
@@ -15,13 +15,17 @@ public class Cycle {
         return this.pedalPerSec * 5;
     }
 
-    public String maker(){
+    protected String maker(){
         return " Hero";
     }
 
-    public void printSpeed(){
-        String msg = String.format("%s cycle is currently moving at %f KM/Hr",maker(),getSpeed());
+    public final void printSpeed(){
+        String msg = getMessage();
         System.out.println(msg);
+    }
+
+    private String getMessage(){
+        return String.format("%s cycle is currently moving at %f KM/Hr",maker(),getSpeed());
     }
 
 }

@@ -20,6 +20,13 @@ public class CycleMain {
         gc2.printSpeed();
 
         GearWalaCycle gc3 = new GearWalaCycle(5,2);
+        gc3.gear=7;
         gc3.printSpeed();
+
+        Cycle gc4 = new GearWalaCycle();
+        ((GearWalaCycle) gc4).gear= 4;
+        gc4.pedalPerSec = 7.0;
+        gc4.printSpeed();
+
     }
 }
