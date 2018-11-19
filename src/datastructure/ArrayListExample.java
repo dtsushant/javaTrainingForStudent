@@ -40,5 +40,20 @@ public class ArrayListExample {
         System.out.println(stringArrayList);
         System.out.println(stringArrayList.get(2));
 
+        for(int i =0; i < integerArrayList.size(); i++){
+            System.out.println(integerArrayList.get(i));
+        }
+
+        System.out.println("using for each loop :-------");
+        for (int a: integerArrayList) {
+            System.out.println(a);
+        }
+
+        System.out.println("using for each loop in String arraylist:-------");
+
+        for(String  a : stringArrayList){
+            System.out.println(a);
+        }
+
     }
 }
