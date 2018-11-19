@@ -1,5 +1,7 @@
 package datastructure;
 
+import model.Pets;
+
 import java.util.ArrayList;
 
 public class ArrayListExample {
@@ -8,6 +10,8 @@ public class ArrayListExample {
         ArrayList<Integer> integerArrayList = new ArrayList<>();
 
         ArrayList<String> stringArrayList = new ArrayList<>();
+
+        ArrayList<Pets> petsList = new ArrayList<>();
 
         integerArrayList.add(99);
 
@@ -54,6 +58,32 @@ public class ArrayListExample {
         for(String  a : stringArrayList){
             System.out.println(a);
         }
+
+        Pets pet = new Pets();
+        pet.setName("Doggie");
+        pet.setAge(7);
+        pet.setColor("brown");
+        pet.setType("Dog");
+        pet.setWeight(23.1);
+        pet.setVaccinated(true);
+
+        petsList.add(pet);
+
+        Pets pet1 = new Pets("Billi","Cat",8,"Black and White",true,7.0);
+
+        petsList.add(pet1);
+
+        petsList.add(new Pets("Chari","Bird",1,"black",false,0.1));
+
+        Pets p = petsList.get(1);
+
+        System.out.println("Printing pets information ======= >>>>> ");
+        System.out.println(p.getName());
+        System.out.println(p.getType());
+        System.out.println(p.getAge());
+        System.out.println(p.getColor());
+        System.out.println(p.getWeight());
+        System.out.println(p.isVaccinated());
 
     }
 }
