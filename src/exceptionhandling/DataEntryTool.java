@@ -57,4 +57,9 @@ public class DataEntryTool {
 
         return returnInt;
     }
+
+    public static String next(){
+        Scanner scanner = new Scanner(System.in);
+        return scanner.nextLine();
+    }
 }
