@@ -2,6 +2,7 @@ package model;
 
 public class Pets {
 
+    private Integer id;
     private String name;
     private String type;
     private Integer     age;
@@ -19,6 +20,25 @@ public class Pets {
         this.color = color;
         this.isVaccinated = isVaccinated;
         this.weight = weight;
+    }
+
+    public Pets(Integer id, String name, String type, Integer age, String color, boolean isVaccinated, Double weight) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.age = age;
+        this.color = color;
+        this.isVaccinated = isVaccinated;
+        this.weight = weight;
+    }
+
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {
