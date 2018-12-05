@@ -1,0 +1,20 @@
+table{
+    border: solid 1px #000;
+}
+
+thead tr th{
+    background: black;
+    color: #FFF;
+}
+
+tr.even{
+    background: #CCC;
+}
+
+tr.odd{
+    background: aquamarine;
+}
+
+td{
+    border: solid 1px #000;
+}
