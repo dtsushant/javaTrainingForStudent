@@ -87,4 +87,13 @@ public class Pets {
     public void setWeight(Double weight) {
         this.weight = weight;
     }
+
+    public String getCategory(){
+        if(type.equalsIgnoreCase("dog"))
+            return  "Canine";
+        else if(type.equalsIgnoreCase("cat"))
+            return "Pheline";
+            else
+                return "other";
+    }
 }
