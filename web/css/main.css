@@ -18,3 +18,42 @@ tr.odd{
 td{
     border: solid 1px #000;
 }
+
+#container{
+    width: 95%;
+    margin: auto;
+}
+#content, #header,#footer {
+    width: 98%;
+    float: left;
+}
+
+.profile{
+    width: 300px;
+    padding: 4px;
+    border: 1px solid;
+    float:right;
+    display: block;
+    clear: both;
+    line-break: auto;
+    font-weight: bolder;
+    font-size: 12px;
+    text-align: right;
+}
+
+.menu{
+    width: 95%;
+    margin: auto;
+    display: block;
+    clear: both;
+    border: 1px solid;
+    float: left;
+    height: 19px;
+    margin: 4px;
+}
+
+ul.menu li {
+    display: inline;
+    list-style: disc;
+    margin-left: 15px;
+}
