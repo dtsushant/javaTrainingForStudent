@@ -8,9 +8,11 @@ public class Pets {
     private String  color;
     private boolean isVaccinated;
     private Double  weight;
+    private Owner owner;
 
     public Pets() {
     }
+
 
 
     public Pets(String name, String type, Integer age, String color, boolean isVaccinated, Double weight) {
@@ -30,6 +32,17 @@ public class Pets {
         this.color = color;
         this.isVaccinated = isVaccinated;
         this.weight = weight;
+    }
+
+    public Pets(Integer id, String name, String type, Integer age, String color, boolean isVaccinated, Double weight, Owner owner) {
+        this.id = id;
+        this.name = name;
+        this.type = type;
+        this.age = age;
+        this.color = color;
+        this.isVaccinated = isVaccinated;
+        this.weight = weight;
+        this.owner = owner;
     }
 
     public Integer getId() {
