@@ -101,4 +101,8 @@ public class Owner {
 
         return owners;
     }
+
+    public String getEditUrl(){
+        return "/owner/edit?id="+this.id;
+    }
 }
