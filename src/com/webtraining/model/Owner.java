@@ -102,6 +102,29 @@ public class Owner {
         return owners;
     }
 
+    public static Owner get(Integer ownerId){
+        Owner on = null;
+        try{
+            Connection con = Connector.getConnection();
+            String sql = "SELECT  * from owner where id =?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1,ownerId);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()){
+                Integer id = rs.getInt("id");
+                String fullname = rs.getString("fullname");
+                String address = rs.getString("address");
+                Integer phone = rs.getInt("phone_no");
+
+                on = new Owner(id,fullname,address,phone);
+
+            }
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        return  on;
+    }
+
     public String getEditUrl(){
         return "/owner/edit?id="+this.id;
     }
