@@ -37,7 +37,10 @@ public class PetsServlet extends HttpServlet {
 
         if(request.getRequestURI().equalsIgnoreCase("/pets")  || request.getRequestURI().equalsIgnoreCase("/pets/list")) {
             request.setAttribute("pageName", "pets");
-            request.setAttribute("petList",Pets.findAll());
+            if(request.getParameter("ownerId")!=null){
+                request.setAttribute("petList",Pets.findAllByOwnerId(Integer.parseInt(request.getParameter("ownerId"))));
+            }else
+                request.setAttribute("petList",Pets.findAll());
         }else if(request.getRequestURI().equalsIgnoreCase("/pets/add")) {
             request.setAttribute("ownerList",Owner.findAll());
             request.setAttribute("pageName", "addPets");

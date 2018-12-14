@@ -24,6 +24,11 @@ public class FirstServlet extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<h1> hi this is my first page </h1>");
+        out.println("<h1> ");
+        out.println(request.getParameter("age"));
+        out.println(request.getParameter("name"));
+        out.println(request.getParameter("id"));
+        out.println("</h1>");
         out.println("</body>");
         out.println("</html>");
     }

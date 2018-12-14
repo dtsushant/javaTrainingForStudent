@@ -20,7 +20,7 @@
         <c:forEach items="${ownerList}" var="o" >
             <c:set var="i" value="${i+1}" />
             <tr class="${i%2==0?"even":"odd"}">
-            <td>${o.fullname}</td>
+                <td><a href="/pets?ownerId=${o.id}">${o.fullname}</a></td>
             <td>${o.address}</td>
             <td>${o.phoneNo}</td>
             <td><a href="${o.editUrl}">Edit</a> / <a href="#">Delete</a></td>

@@ -5,6 +5,7 @@ import com.webtraining.database.Connector;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Pets {
@@ -166,22 +167,44 @@ public class Pets {
             PreparedStatement stmt = con.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                Integer id = rs.getInt("id");
-                String name = rs.getString("name");
-                String type = rs.getString("type");
-                String color = rs.getString("color");
-                Integer age = rs.getInt("age");
-                Double weight = rs.getDouble("weight");
-                Boolean isVaccinated= rs.getBoolean("is_vaccinated");
-                Owner owner= Owner.get(rs.getInt("owner_id"));
-
-                pets.add(new Pets(id,name,type,age,color,isVaccinated,weight,owner));
+                pets.add(getPetsFromResultSet(rs))   ;
 
             }
         }catch (Exception ex){
             System.out.println(ex.toString());
         }
         return pets;
+    }
+
+    public static ArrayList<Pets> findAllByOwnerId(Integer ownerId){
+        ArrayList<Pets> pets = new ArrayList<>();
+        try{
+            Connection con = Connector.getConnection();
+            String sql = "SELECT  * from pets where owner_id = ?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setInt(1,ownerId);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                pets.add(getPetsFromResultSet(rs))   ;
+
+            }
+        }catch (Exception ex){
+            System.out.println(ex.toString());
+        }
+        return pets;
+    }
+
+    private static Pets getPetsFromResultSet(ResultSet rs) throws SQLException {
+        Integer id = rs.getInt("id");
+        String name = rs.getString("name");
+        String type = rs.getString("type");
+        String color = rs.getString("color");
+        Integer age = rs.getInt("age");
+        Double weight = rs.getDouble("weight");
+        Boolean isVaccinated= rs.getBoolean("is_vaccinated");
+        Owner owner= Owner.get(rs.getInt("owner_id"));
+
+        return new Pets(id,name,type,age,color,isVaccinated,weight,owner);
     }
 
 
