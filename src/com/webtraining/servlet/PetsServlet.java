@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "PetsServlet",urlPatterns = {"/pets/add","/pets","/pets/list"})
@@ -32,19 +33,24 @@ public class PetsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getRequestURI());
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
+        HttpSession session = request.getSession();
+        if(session.getAttribute("username") == null)
+            response.sendRedirect("/login");
+        else {
+            System.out.println(request.getRequestURI());
+            RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
 
-        if(request.getRequestURI().equalsIgnoreCase("/pets")  || request.getRequestURI().equalsIgnoreCase("/pets/list")) {
-            request.setAttribute("pageName", "pets");
-            if(request.getParameter("ownerId")!=null){
-                request.setAttribute("petList",Pets.findAllByOwnerId(Integer.parseInt(request.getParameter("ownerId"))));
-            }else
-                request.setAttribute("petList",Pets.findAll());
-        }else if(request.getRequestURI().equalsIgnoreCase("/pets/add")) {
-            request.setAttribute("ownerList",Owner.findAll());
-            request.setAttribute("pageName", "addPets");
+            if (request.getRequestURI().equalsIgnoreCase("/pets") || request.getRequestURI().equalsIgnoreCase("/pets/list")) {
+                request.setAttribute("pageName", "pets");
+                if (request.getParameter("ownerId") != null) {
+                    request.setAttribute("petList", Pets.findAllByOwnerId(Integer.parseInt(request.getParameter("ownerId"))));
+                } else
+                    request.setAttribute("petList", Pets.findAll());
+            } else if (request.getRequestURI().equalsIgnoreCase("/pets/add")) {
+                request.setAttribute("ownerList", Owner.findAll());
+                request.setAttribute("pageName", "addPets");
+            }
+            rd.forward(request, response);
         }
-        rd.forward(request,response);
     }
 }

@@ -1,4 +1,4 @@
-<span class="profile"> Hello ${sessionScope.get("username")} | <a href="#">Logout</a></span>
+<span class="profile"> Hello ${sessionScope.get("username")} | <a href="/logout">Logout</a></span>
 
 
 <ul class="menu">
