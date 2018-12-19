@@ -33,10 +33,7 @@ public class PetsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        if(session.getAttribute("username") == null)
-            response.sendRedirect("/login");
-        else {
+
             System.out.println(request.getRequestURI());
             RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/main.jsp");
 
@@ -51,6 +48,6 @@ public class PetsServlet extends HttpServlet {
                 request.setAttribute("pageName", "addPets");
             }
             rd.forward(request, response);
-        }
+
     }
 }
