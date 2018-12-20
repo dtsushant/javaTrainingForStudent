@@ -1,3 +1,4 @@
+<%@ taglib prefix="custom" uri="http://javatraining.com" %>
 <%--
   Created by IntelliJ IDEA.
   User: spandey
@@ -9,6 +10,8 @@
 <html>
 <head>
     <title>something</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
+
 </head>
 <body>
 
@@ -17,6 +20,17 @@
         out.println(i+"<br/>");
     }
 %>
+
+<custom:empty/>
+
+<input type="text" />
+
+<custom:mulitiplier multiply="4" goUpto20="true" />
+<custom:mulitiplier multiply="10"  />
+
+<custom:errorFinder>
+    hi this is an example of error while its not an error also Error
+</custom:errorFinder>
 
 </body>
 </html>
