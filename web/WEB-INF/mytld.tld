@@ -37,4 +37,20 @@
         <body-content>scriptless</body-content>
     </tag>
 
+    <tag>
+        <name>flash-message</name>
+        <tag-class>com.webtraining.taglibs.FlashMessageTaglib</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>title</name>
+            <required>true</required>
+        </attribute>
+
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+        </attribute>
+
+    </tag>
+
 </taglib>

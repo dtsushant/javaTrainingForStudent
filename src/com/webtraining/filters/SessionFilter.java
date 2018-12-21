@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @WebFilter(filterName = "SessionFilter",urlPatterns = "/*")
 public class SessionFilter implements Filter {
 
-    String[] dontNeedLogin = {"/login","/logout","/","/css/*"};
+    String[] dontNeedLogin = {"/login","/logout","/","/css/main.css"};
 
     public void destroy() {
     }

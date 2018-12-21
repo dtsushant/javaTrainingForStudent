@@ -1,3 +1,4 @@
+<%@ taglib prefix="custom" uri="http://javatraining.com" %>
 <%--
   Created by IntelliJ IDEA.
   User: spandey
@@ -13,6 +14,8 @@
 
 </head>
 <body>
+<custom:flash-message title="loginerror" type="error"/>
+
 <form method="post" action="/login">
     Username: <input type="text" name="user" required /><br/>
     Password: <input type="password" name="pass" required/><br/>

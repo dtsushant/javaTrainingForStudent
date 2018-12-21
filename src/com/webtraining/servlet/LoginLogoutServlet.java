@@ -2,6 +2,7 @@ package com.webtraining.servlet;
 
 
 import com.webtraining.model.User;
+import com.webtraining.util.FlashMessage;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -22,6 +23,7 @@ public class LoginLogoutServlet extends HttpServlet {
             User u = User.login(username,password);
             HttpSession session = request.getSession();
             if(u==null){
+                FlashMessage.setMessage(session,"loginerror","The username or password you've entered is incorrect");
                 response.sendRedirect("/login");
             }else {
 
