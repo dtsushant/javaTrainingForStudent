@@ -46,18 +46,25 @@ public class StringProperty {
         System.out.println("here again"+s1.indexOf("i",2+1));
         System.out.println(recurseStringForChar(s2,'h',0));
 
-        /*
-            use while loop to reverse a string eg. deerwalk -> klawreed
 
-            use loop to to check if string is palindrome  liril
-
-         */
 
         System.out.printf("hi this is a formatted string, eg %s, %d, %f, %c","String",77,7.8,'b');
 
         String format = String.format("\neg  %d, %f, %c,%s",77,7.8,'b',"String");
         System.out.println(format);
 
+        String o1 = " hello ";
+        String o2 = " world ";
+        char a = 'a';
+        String o3 = o1+ o2 +a;
+        System.out.println(o3);
+
+        /*
+            use while loop to reverse a string eg. deerwalk -> klawreed
+
+            use loop to to check if string is palindrome  liril
+
+         */
     }
 
     public static int recurseStringForChar(String s, char c,int fromIndex){
