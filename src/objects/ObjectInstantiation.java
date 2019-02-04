@@ -30,4 +30,6 @@ public class ObjectInstantiation {
             create 1 method printEven() to print all even no. from int2 to 0
          */
     }
+
+
 }
